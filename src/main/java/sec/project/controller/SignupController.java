@@ -8,16 +8,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import sec.project.domain.Signup;
 import sec.project.repository.SignupRepository;
 
-@Controller
+@Controller()
+@RequestMapping("signup")
 public class SignupController {
 
     @Autowired
     private SignupRepository signupRepository;
-
-    @RequestMapping("*")
-    public String defaultMapping() {
-        return "redirect:/form";
-    }
 
     @RequestMapping(value = "/form", method = RequestMethod.GET)
     public String loadForm() {

@@ -5,8 +5,8 @@ The report must follow the following structure:
 ## LINK: https://github.com/juhoheinonen/cybersecuritybase-project
 <installation instructions if needed>
 
-## FLAW 1:
-<description of flaw 1>
+## FLAW 1: Cross-site request forgery
+todo: allow changing password
 <how to fix it>
 
 ## FLAW 2:
