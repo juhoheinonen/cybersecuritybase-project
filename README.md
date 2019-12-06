@@ -2,7 +2,7 @@
 You will then write a 1000 word report (hard limits: 800-1500) that pinpoints the flaws and the describes how they can be fixed.
 The report must follow the following structure:
 
-## LINK: <link to the repository>
+## LINK: https://github.com/juhoheinonen/cybersecuritybase-project
 <installation instructions if needed>
 
 ## FLAW 1:
