@@ -6,9 +6,21 @@ The report must follow the following structure:
 <installation instructions if needed>
 
 ## FLAW 1: Cross-site request forgery
-todo: allow changing password
+If the user is logged in, it's possible using malicious hyperlink to cause the
+user unknowingly submit the form with any data. Steps the vulnerability can be
+used:
+1) The user is logged on in the vulnerable site
+2) He/she receives an email with a hyperlink to a scam site
+3) He/she clicks the link
+4) In the scam site there's a prefilled form which targets the action on target
+site where the user is logged in
+5) A sign up is sent to the application with any parameters.
 <how to fix it>
-
+The problem can be fixed by enabling cross site request forgery setting in Spring.
+It's normally enabled but it has been on purpose disabled in this demo application.
+If it's on then a hidden csrf element is inserted in html form and the controller
+processing action of the form requires the hidden token to be included in post.
+Otherwise 403 status code is returned from controller action.
 ## FLAW 2:
 <description of flaw 2>
 <how to fix it>

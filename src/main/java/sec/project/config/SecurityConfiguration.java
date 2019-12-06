@@ -29,7 +29,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .defaultSuccessUrl("/signup/form", true)
                 .and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .and()
+                .csrf().disable(); // Disable csrf prevention on purpose and weakening security that way.
     }
 
     @Autowired
