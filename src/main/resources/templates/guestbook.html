@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Guestbook</title>        
+    </head>
+    <body>
+        <h1>Guestbook items</h1>
+        <div>        
+            <div th:each="item : ${items}">
+                Title: <span th:text="${item.title}" />. Created on: <span th:text="{item.createdOn}" />
+
+                Content:
+
+                <p th:text="{item.content}"/>
+            </div>           
+        </div>
+
+        <form th:action="@{/guestbook/post}" method="POST">
+            <label for="title" /> <input type="text" id="title" name="title" />
+            <label for="content" /><input type="text" id="content" name="content" />
+            <input type="submit"/>
+        </form>
+
+    </body>
+</html>

@@ -3,9 +3,10 @@ You will then write a 1000 word report (hard limits: 800-1500) that pinpoints th
 The report must follow the following structure:
 
 ## LINK: https://github.com/juhoheinonen/cybersecuritybase-project
-<installation instructions if needed>
 
-## FLAW 1: Cross-site request forgery
+## FLAW 1: Cross-Site Request Forgery
+
+### Description
 If the user is logged in, it's possible using malicious hyperlink to cause the
 user unknowingly submit the form with any data. Steps the vulnerability can be
 used:
@@ -15,14 +16,17 @@ used:
 4) In the scam site there's a prefilled form which targets the action on target
 site where the user is logged in
 5) A sign up is sent to the application with any parameters.
-<how to fix it>
-The problem can be fixed by enabling cross site request forgery setting in Spring.
+
+### Fix
+
+Enable cross site request forgery setting in Spring.
 It's normally enabled but it has been on purpose disabled in this demo application.
 If it's on then a hidden csrf element is inserted in html form and the controller
 processing action of the form requires the hidden token to be included in post.
 Otherwise 403 status code is returned from controller action.
-## FLAW 2:
-<description of flaw 2>
+
+## FLAW 2: Cross-Site Scripting (XSS)
+
 <how to fix it>
 
 ## FLAW 3:
