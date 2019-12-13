@@ -19,7 +19,7 @@ public class GuestBookController {
     @Autowired
     private GuestBookItemRepository guestBookItemRepository;    
     
-    @RequestMapping(value = "/*", method = RequestMethod.GET)
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public String loadGuestBook(Model model) {
         List<GuestBookItem> guestBookItems = guestBookItemRepository.findAll();
         
@@ -40,7 +40,7 @@ public class GuestBookController {
         item.setUsername(username);
         
         guestBookItemRepository.save(item);
-        return "redirect:/guestbook/form";
+        return "redirect:/guestbook";
     }
 
 }

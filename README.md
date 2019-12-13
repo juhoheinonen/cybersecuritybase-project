@@ -7,6 +7,7 @@ The report must follow the following structure:
 ## FLAW 1: Cross-Site Request Forgery
 
 ### Description
+
 If the user is logged in, it's possible using malicious hyperlink to cause the
 user unknowingly submit the form with any data. Steps the vulnerability can be
 used:
@@ -27,7 +28,14 @@ Otherwise 403 status code is returned from controller action.
 
 ## FLAW 2: Cross-Site Scripting (XSS)
 
-<how to fix it>
+### Description
+
+A logged-in user can insert any kind of text in the guestbook. As evil user he/she could insert JavaScript code
+in title or content. The flaw is caused by using th:utext to render content of model object on screen, allowing raw html.
+
+### Fix
+
+At least you can us th:text instead of th:utext so that JavaScript won't be run.
 
 ## FLAW 3:
 <description of flaw 3>

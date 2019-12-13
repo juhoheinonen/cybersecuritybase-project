@@ -2,17 +2,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Guestbook</title>        
+
+        <style>
+            table {
+                border-style: solid;
+                border-width: 2px;
+                margin-bottom: 1em;
+                padding: 3px;
+            }
+            
+            table tr {
+                border-bottom: 1px solid black;
+            }​
+
+            table tr:last-child { 
+                border-bottom: none; 
+            }
+        </style>
     </head>
     <body>
         <h1>Guestbook items</h1>
         <div>        
-            <div th:each="item : ${items}">
-                Title: <span th:text="${item.title}" />. Created on: <span th:text="{item.createdOn}" />
+            <table border="10">
+                <tr><th>Title</th><th>Created on</th><th>Content</th></tr>
 
-                Content:
-
-                <p th:text="{item.content}"/>
-            </div>           
+                <tr th:each="item : ${items}" style="border-style: solid; border-width: 1px;">
+                    <td th:utext="${item.title}" /><td th:text="${item.createdOn}" /><td th:utext="${item.content}"/>
+                </tr>           
+            </table>
         </div>
 
         <form th:action="@{/guestbook/post}" method="POST">
