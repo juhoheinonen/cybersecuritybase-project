@@ -37,9 +37,15 @@ in title or content. The flaw is caused by using th:utext to render content of m
 
 At least you can us th:text instead of th:utext so that JavaScript won't be run.
 
-## FLAW 3:
-<description of flaw 3>
-<how to fix it>
+## FLAW 3: SQL Injection
+
+### Description
+
+I replaced using SignupRepository with just sql queries. On page /signup, you can search with e.g. string "') or 1=1 to" to display all signups, also of other users.
+
+### Fix
+
+Use e.g. JPARepository or PreparedStatement to prevent sql injection.
 
 ## FLAW 4:
 <description of flaw 4>

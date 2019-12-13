@@ -7,11 +7,27 @@
 
         <h1>Sign up to the event using this form</h1>
 
-        <form action="#" th:action="@{/signup/form}" method="POST">
+        <form action="#" th:action="@{/signup}" method="POST">
             <p><label for="name">Name</label>: <input type="text" name="name" id="name"/></p>
             <p><label for="address">Address</label>: <input type="text" name="address" id="address"/></p>
             <p><input type="submit" value="Submit" /></p>
         </form>
+
+        <h1>Signups</h1>
+
+        <form action="#" th:action="@{/signup}" method="GET">
+            <label for="search">Search</label><input id="search" name="search"/><input type="submit"/>
+        </form>
+
+        <div>        
+            <table border="10">
+                <tr><th>Name</th><th>Address</th></tr>
+
+                <tr th:each="item : ${items}" style="border-style: solid; border-width: 1px;">
+                    <td th:utext="${item.name}" /><td th:text="${item.address}" />
+                </tr>           
+            </table>
+        </div>
 
         <p>            
             <a href="/guestbook">Guestbook</a>
