@@ -47,7 +47,7 @@ I replaced using SignupRepository with just sql queries. On page /signup, you ca
 
 Use e.g. JPARepository or PreparedStatement to prevent sql injection.
 
-## FLAW 4: Security misconfiguration
+## FLAW 4: Security Misconfiguration
 
 ### Description
 
@@ -55,11 +55,22 @@ This is closely related to flaw 3: SQL Injection.
 Steps to reproduce:
 1) Go to signup page.
 2) Insert into Search text box one single quote '.
-3) You are shown Whitelable error Page with detailed error message that includes the sql statement, making it even easier to perform
-sql injection attack on this page.
+3) You are shown Whitelable error Page with verbose error message containing the sql statement.
 
 ### FIX:
 
-## FLAW 5:
-<description of flaw 5>
-<how to fix it>
+Show custom error page instead of detailed error page. Write to log about error.
+
+## FLAW 5: Broken authentication
+
+### Description
+
+If you know the user name of a signed up user, a hacker can freely use fuzzer to try to break the password by
+sending continuous requests to login method. The first response that contains Location: http://localhost:8080/ without login?error in the url is the one with
+correct password.
+
+### Fix:
+
+There are several possible fixes. First is to force long enough passwords. It's better to force long passwords than passwords with special characters, different letter
+sizes etc. Also multi-factor authentication. Also one could limit allowed log in trials from certain ip, or lock the whole account, even though this could cause difficulties for
+honest users.

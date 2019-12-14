@@ -20,14 +20,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(HttpSecurity http) throws Exception {                      
         http                
                 .authorizeRequests()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
-                .defaultSuccessUrl("/signup", true)
+                .defaultSuccessUrl("/", true)
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .and()

@@ -17,11 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import sec.project.domain.Signup;
 
 @Controller()
-@RequestMapping("signup")
 public class SignupController {
-
-    //@Autowired
-    //private SignupRepository signupRepository;    
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String loadForm(Model model, Authentication authentication, @RequestParam(defaultValue = "") String search) throws SQLException {
         String username = authentication.getName();
@@ -61,6 +57,8 @@ public class SignupController {
         preparedStatement.setString(2, name);
         preparedStatement.setString(3, address);
 
+        preparedStatement.execute();
+        
         return "done";
     }
 
