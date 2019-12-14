@@ -47,9 +47,18 @@ I replaced using SignupRepository with just sql queries. On page /signup, you ca
 
 Use e.g. JPARepository or PreparedStatement to prevent sql injection.
 
-## FLAW 4:
-<description of flaw 4>
-<how to fix it>
+## FLAW 4: Security misconfiguration
+
+### Description
+
+This is closely related to flaw 3: SQL Injection.
+Steps to reproduce:
+1) Go to signup page.
+2) Insert into Search text box one single quote '.
+3) You are shown Whitelable error Page with detailed error message that includes the sql statement, making it even easier to perform
+sql injection attack on this page.
+
+### FIX:
 
 ## FLAW 5:
 <description of flaw 5>

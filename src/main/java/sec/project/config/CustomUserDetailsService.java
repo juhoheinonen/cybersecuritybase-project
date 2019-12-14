@@ -8,6 +8,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,7 +21,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         // this data would typically be retrieved from a database
         this.accountDetails = new TreeMap<>();
         this.accountDetails.put("ted", "$2a$06$rtacOjuBuSlhnqMO2GKxW.Bs8J6KI0kYjw/gtF0bfErYgFyNTZRDm");
-        this.accountDetails.put("ben", "$2a$06$rtacOjuBuSlhnqMO2GKxW.Bs8J6KI0kYjw/gtF0bfErYgFyNTZRDm");
+        this.accountDetails.put("ben", encodePassword("test"));
     }
 
     @Override
@@ -37,5 +38,12 @@ public class CustomUserDetailsService implements UserDetailsService {
                 true,
                 true,
                 Arrays.asList(new SimpleGrantedAuthority("USER")));
+    }
+
+    private String encodePassword(String input) {
+         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+         String encoded = encoder.encode(input);
+         
+         return encoded;
     }
 }
