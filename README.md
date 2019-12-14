@@ -1,5 +1,7 @@
 ## LINK: https://github.com/juhoheinonen/cybersecuritybase-project
 
+## Installation: should be straight-forward, if you open the project in NetBeans. Just build and run.
+
 ## FLAW 1: Cross-Site Request Forgery
 
 ### Description
