@@ -37,6 +37,7 @@ public class SignupController {
         }
         
         model.addAttribute("items", signups);
+        model.addAttribute("search", search);
 
         return "form";
     }
